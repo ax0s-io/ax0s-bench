@@ -18,8 +18,22 @@ Tier 1 does not download a model. It does not fetch LoCoMo. It does not measure 
 
 Tier 2 uses one small model exposed through a local OpenAI-compatible endpoint. It fetches the pinned LoCoMo dataset and runs eight questions from the first conversation through the full-context adapter.
 
-1. Start a local model server at `http://127.0.0.1:8081/v1`.
-2. Record the exact model name, file SHA-256, server build, and hardware. Replace the placeholder disclosure in `configs/tier2-local-subset.toml`.
+The pinned tier-2 reference model is **Qwen3-4B Q8_0 GGUF** from the official
+`Qwen/Qwen3-4B-GGUF` repository, file `Qwen3-4B-Q8_0.gguf`, SHA-256
+`8c2f07f26af9747e41988551106f149b03eb9b5cb6df636027b6bf6278473300`. It is the
+same model family as the tier-3 reference, runs on CPU through llama.cpp, and
+is the configuration `configs/tier2-local-subset.toml` discloses.
+
+Substitution rule: any other local model or quantisation may be used, but the
+disclosure fields must then be replaced with that artifact's exact name and
+file SHA-256, and the resulting receipt is a different protocol — label it
+with its own disclosure and do not place it beside pinned tier-2 numbers.
+
+1. Download the pinned file and verify its SHA-256, then start a local model
+   server at `http://127.0.0.1:8081/v1` serving it (llama.cpp OpenAI-compatible
+   mode).
+2. Record the server build and hardware alongside the pinned disclosure in
+   `configs/tier2-local-subset.toml`.
 3. Install the harness and fetch the pinned dataset.
 4. Run the reduced configuration.
 
