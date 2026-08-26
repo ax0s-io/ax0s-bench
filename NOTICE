@@ -1,0 +1,16 @@
+AX0S Bench
+Copyright 2026 Ax0s, LLC
+
+This product includes software developed by Ax0s, LLC and licensed under the Apache License 2.0.
+
+LoCoMo dataset notice
+
+The LoCoMo dataset is not included in this repository. The harness can fetch the file from:
+https://github.com/snap-research/locomo/tree/3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376
+
+Upstream authors: the LoCoMo authors and contributors identified by snap-research/locomo.
+Licence: Creative Commons Attribution-NonCommercial 4.0 International.
+Licence URI: https://creativecommons.org/licenses/by-nc/4.0/
+Pinned dataset SHA-256: 79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4
+
+The harness does not modify the dataset file. It selects benchmark frames, submits questions to configured systems, hashes redacted values, and computes scores. The dataset is supplied without warranties under its upstream licence. Ax0s, LLC does not grant rights to LoCoMo.

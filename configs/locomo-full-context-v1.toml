@@ -1,0 +1,74 @@
+[run]
+id = "locomo-full-context-qwen38-full-v1"
+seed = 20260818
+max_conversations = 10
+questions_per_conversation = 10000
+calibration_sample_size = 40
+judge_prompt = "prompts/locomo_binary_judge_v1.txt"
+result_path = "results/locomo-full-context-qwen38-full-v1.json"
+calibration_path = "calibration/locomo-full-context-qwen38-full-v1-judge-sample.json"
+
+[dataset]
+name = "LoCoMo"
+source_url = "https://raw.githubusercontent.com/snap-research/locomo/3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376/data/locomo10.json"
+revision = "snap-research/locomo@3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376"
+sha256 = "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4"
+path = "data/locomo10.json"
+
+[answer_model]
+endpoint = "http://127.0.0.1:8081/v1"
+model_id = "qwen38-local-vl"
+disclosed_model = "Qwen3.8-27B Q6_K GGUF, resident llama-server alias qwen38-local-vl"
+provider = "llama.cpp OpenAI-compatible server"
+temperature = 0.0
+top_p = 1.0
+max_tokens = 128
+seed = 20260818
+timeout_seconds = 300
+enable_thinking = false
+
+[judge_model]
+endpoint = "http://127.0.0.1:8081/v1"
+model_id = "qwen38-local-vl"
+disclosed_model = "Qwen3.8-27B Q6_K GGUF, resident llama-server alias qwen38-local-vl"
+provider = "llama.cpp OpenAI-compatible server"
+temperature = 0.0
+top_p = 1.0
+max_tokens = 256
+seed = 20260818
+timeout_seconds = 300
+enable_thinking = false
+
+[condition]
+name = "full-conversation-in-context"
+adapter = "full_context"
+description = "The complete LoCoMo conversation is supplied to the answer model for every question; no external memory system or retrieval is used."
+
+[attestation]
+required = true
+reproduction_tier = 3
+model_id = "qwen38-local-vl"
+llama_cpp_revision = "4c1a0af40d88c7fbb3b15c85bf2e8016d1d5b64c"
+llama_cpp_revision_env = "AX0S_BENCH_LLAMA_CPP_REVISION"
+gpu_name = "NVIDIA GeForce RTX 5090"
+gpu_memory_mib = 32607
+gpu_driver = "595.84"
+
+[attestation.artifacts.main_model]
+env_var = "AX0S_BENCH_MAIN_MODEL_PATH"
+bytes = 22884407264
+sha256 = "ade6d6615688aafa1dcfc9f5b4e1a66447bc02f8e099a006a10f9263f22f8ccc"
+
+[attestation.artifacts.draft_model]
+env_var = "AX0S_BENCH_DRAFT_MODEL_PATH"
+bytes = 3164006688
+sha256 = "cbf60a0c48b431bb61f1d49b8948dc88ac29c398d6dbdbb2e6e89ef77eacc9a"
+
+[attestation.artifacts.mmproj]
+env_var = "AX0S_BENCH_MMPROJ_PATH"
+bytes = 931146432
+sha256 = "83ee4f4f205fa514161778c41df1ea14144faa0f713510893b63c2395f5c2d53"
+
+[attestation.artifacts.llama_server]
+env_var = "AX0S_BENCH_LLAMA_SERVER_PATH"
+sha256 = "e3bd1a58373f4ba6c35e2b6eac9392366dd11092c98898e6763020d7842745a7"

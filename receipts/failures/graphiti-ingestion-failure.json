@@ -1,0 +1,20 @@
+{
+  "schema_version": "ax0s-bench-redacted-failure-receipt-v1",
+  "event": "graphiti_full_run_failed",
+  "checked_at_utc": "2026-08-21T09:05:46.094744+00:00",
+  "condition": "Graphiti OSS 0.29.3 with local qwen38-local-vl extraction",
+  "progress": "419/5882 turns attempted; no checkpoints",
+  "failure": "The adapter failed closed after 256 of 419 attempted turns failed extraction retries. The small seeded smoke had passed, but the failure appeared at full-run scale.",
+  "score_emitted": false,
+  "private_artifacts": "Full logs and ingestion records are available to auditors on request.",
+  "full_receipt_raw_sha256": "1527ba46cb125601cd1d2067491a250efd00f8435979c04b4717993f5078e0d3",
+  "redaction": [
+    "host identity",
+    "private paths",
+    "internal orchestration actions"
+  ],
+  "content_hash": {
+    "algorithm": "sha256-canonical-json-excluding-content_hash",
+    "value": "35281434a6f8c4acb6c5506a74f45691cf3ffc9fcbbd1d4ef69b37a5e82eaee0"
+  }
+}

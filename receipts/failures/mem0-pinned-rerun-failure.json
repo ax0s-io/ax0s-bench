@@ -1,0 +1,21 @@
+{
+  "schema_version": "ax0s-bench-redacted-failure-receipt-v1",
+  "event": "mem0_pinned_rerun_failed_early",
+  "checked_at_utc": "2026-08-20T20:35:00+00:00",
+  "condition": "Mem0 OSS 2.0.18 pinned rerun at harness revision 08ddce9607a9ae5e1f37d260844e5401f4d30404",
+  "progress": "757/1986 questions; four conversation checkpoints existed",
+  "failure": "The adapter failed closed when one ingestion turn remained malformed after the allowed retry. No question or turn was silently skipped.",
+  "score_emitted": false,
+  "private_artifacts": "Full logs and ingestion records are available to auditors on request.",
+  "full_receipt_raw_sha256": "ab19a64e3fa92f1bd1cdd055003a9e26830b59c0f44a2b9206774ad8d69c97ce",
+  "redaction": [
+    "host identity",
+    "private paths",
+    "process identity",
+    "internal orchestration actions"
+  ],
+  "content_hash": {
+    "algorithm": "sha256-canonical-json-excluding-content_hash",
+    "value": "52b446003ffa7d73b58090402650cc7d3099033c9cc6bc83195226ca4df52d3a"
+  }
+}

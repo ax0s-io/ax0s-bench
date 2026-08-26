@@ -1,0 +1,45 @@
+[run]
+id = "tier2-local-subset"
+seed = 20260818
+max_conversations = 1
+questions_per_conversation = 8
+calibration_sample_size = 8
+judge_prompt = "prompts/locomo_binary_judge_v1.txt"
+result_path = "results/tier2-local-subset.json"
+calibration_path = "calibration/tier2-local-subset-judge-sample.json"
+
+[dataset]
+name = "LoCoMo"
+source_url = "https://raw.githubusercontent.com/snap-research/locomo/3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376/data/locomo10.json"
+revision = "snap-research/locomo@3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376"
+sha256 = "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4"
+path = "data/locomo10.json"
+
+[answer_model]
+endpoint = "http://127.0.0.1:8081/v1"
+model_id = "small-local-model"
+disclosed_model = "Replace with the exact local model name and digest before running"
+provider = "llama.cpp OpenAI-compatible server"
+temperature = 0.0
+top_p = 1.0
+max_tokens = 128
+seed = 20260818
+timeout_seconds = 300
+enable_thinking = false
+
+[judge_model]
+endpoint = "http://127.0.0.1:8081/v1"
+model_id = "small-local-model"
+disclosed_model = "Replace with the exact local model name and digest before running"
+provider = "llama.cpp OpenAI-compatible server"
+temperature = 0.0
+top_p = 1.0
+max_tokens = 256
+seed = 20260818
+timeout_seconds = 300
+enable_thinking = false
+
+[condition]
+name = "full-conversation-in-context"
+adapter = "full_context"
+description = "The complete LoCoMo conversation is supplied to the answer model for every question; no external memory system or retrieval is used."

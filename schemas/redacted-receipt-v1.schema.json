@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ax0s.com/schemas/ax0s-bench-redacted-receipt-v1.json",
+  "title": "AX0S Bench redacted receipt v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "label",
+    "reproduction_tier",
+    "run_id",
+    "full_receipt_linkage",
+    "redaction",
+    "dataset",
+    "aggregate",
+    "questions",
+    "content_hash"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "ax0s-bench-redacted-receipt-v1"
+    },
+    "label": {
+      "type": "string"
+    },
+    "reproduction_tier": {
+      "const": 3
+    },
+    "run_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "started_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "finished_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "harness_git_revision": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "full_receipt_linkage": {
+      "type": "object",
+      "required": [
+        "raw_file_sha256",
+        "canonical_content_sha256",
+        "availability"
+      ],
+      "properties": {
+        "raw_file_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "canonical_content_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "availability": {
+          "type": "string"
+        }
+      }
+    },
+    "redaction": {
+      "type": "object"
+    },
+    "dataset": {
+      "type": "object"
+    },
+    "condition": {
+      "type": "object"
+    },
+    "adapter_metadata": {
+      "type": "object"
+    },
+    "determinism": {
+      "type": "object"
+    },
+    "answer_model": {
+      "type": "object"
+    },
+    "judge_model": {
+      "type": "object"
+    },
+    "judge_prompt": {
+      "type": "object"
+    },
+    "egress_guard": {
+      "type": "object"
+    },
+    "hardware": {
+      "type": "object"
+    },
+    "aggregate": {
+      "type": "object"
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "question_index",
+          "conversation_id",
+          "category",
+          "question_sha256",
+          "gold_answer_sha256",
+          "prediction",
+          "judge"
+        ],
+        "properties": {
+          "question_index": {
+            "type": "integer"
+          },
+          "conversation_id": {
+            "type": [
+              "string",
+              "integer"
+            ]
+          },
+          "conversation_question_index": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "category": {},
+          "question_sha256": {
+            "$ref": "#/$defs/sha256"
+          },
+          "gold_answer_sha256": {
+            "$ref": "#/$defs/sha256"
+          },
+          "prediction": {},
+          "retrieval_and_timing_metadata": {
+            "type": "object"
+          },
+          "judge": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "content_hash": {
+      "type": "object"
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

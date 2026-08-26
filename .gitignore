@@ -1,0 +1,25 @@
+# Local Python state
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Licensed dataset and downloaded models
+data/*.json
+*.gguf
+
+# Benchmark runtime state
+.bench/
+vendor/
+/checkpoints/
+/logs/
+/results/
+/calibration/
+*.log
+*.pid
+
+# Private receipts and local secrets
+receipts/private/
+.env
+.env.*

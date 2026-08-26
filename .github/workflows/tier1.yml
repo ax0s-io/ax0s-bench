@@ -1,0 +1,32 @@
+name: tier1
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install lint tool only
+        run: python -m pip install ruff==0.12.11 jsonschema==4.25.1
+      - name: Lint
+        run: ruff check src scripts tests
+      - name: Unit tests
+        run: PYTHONPATH=src python -m unittest discover -s tests -p 'test_*.py'
+      - name: Fixture smoke
+        run: PYTHONPATH=src python scripts/fixture_smoke.py
+      - name: Public receipt checks
+        run: |
+          for receipt in receipts/redacted/*.json receipts/calibration/*.json receipts/failures/*.json; do
+            PYTHONPATH=src python -m ax0s_bench.cli verify --receipt "$receipt"
+          done
+          PYTHONPATH=src python scripts/validate_public_receipts.py

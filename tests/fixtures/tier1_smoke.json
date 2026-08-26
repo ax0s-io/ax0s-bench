@@ -1,0 +1,71 @@
+{
+  "schema_version": "ax0s-bench-synthetic-fixture-v1",
+  "notice": "Synthetic fixture. It contains no LoCoMo text.",
+  "conversation": [
+    {
+      "speaker": "Rin",
+      "text": "The red notebook is on shelf 2.",
+      "timestamp": "2026-01-01T10:00:00Z"
+    },
+    {
+      "speaker": "Kai",
+      "text": "The blue key opens locker 7.",
+      "timestamp": "2026-01-01T10:01:00Z"
+    },
+    {
+      "speaker": "Rin",
+      "text": "The meeting starts at 14:30.",
+      "timestamp": "2026-01-01T10:02:00Z"
+    }
+  ],
+  "questions": [
+    {
+      "id": 0,
+      "category": "1",
+      "prediction": "shelf 2",
+      "score": 1
+    },
+    {
+      "id": 1,
+      "category": "2",
+      "prediction": "locker 7",
+      "score": 1
+    },
+    {
+      "id": 2,
+      "category": "3",
+      "prediction": "14:30",
+      "score": 1
+    },
+    {
+      "id": 3,
+      "category": "4",
+      "prediction": "red",
+      "score": 1
+    },
+    {
+      "id": 4,
+      "category": "5",
+      "prediction": "blue",
+      "score": 1
+    },
+    {
+      "id": 5,
+      "category": "1",
+      "prediction": "Rin",
+      "score": 1
+    },
+    {
+      "id": 6,
+      "category": "2",
+      "prediction": "Kai",
+      "score": 1
+    },
+    {
+      "id": 7,
+      "category": "3",
+      "prediction": "Unknown",
+      "score": 0
+    }
+  ]
+}

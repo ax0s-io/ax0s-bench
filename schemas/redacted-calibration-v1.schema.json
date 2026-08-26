@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AX0S Bench redacted calibration v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "label",
+    "full_calibration_linkage",
+    "redaction",
+    "decisions",
+    "content_hash"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "ax0s-bench-redacted-calibration-v1"
+    },
+    "label": {
+      "type": "string"
+    },
+    "full_calibration_linkage": {
+      "type": "object",
+      "required": [
+        "raw_file_sha256",
+        "canonical_content_sha256"
+      ],
+      "properties": {
+        "raw_file_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "canonical_content_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "redaction": {
+      "type": "object"
+    },
+    "decisions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "question_index",
+          "conversation_id",
+          "question_sha256",
+          "gold_answer_sha256",
+          "prediction",
+          "judge",
+          "secondary_judge"
+        ]
+      }
+    },
+    "content_hash": {
+      "type": "object"
+    }
+  }
+}

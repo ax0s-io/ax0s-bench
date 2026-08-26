@@ -1,0 +1,72 @@
+[run]
+id = "locomo-graphiti-qwen38-smoke-v1"
+seed = 20260818
+max_conversations = 1
+questions_per_conversation = 3
+calibration_sample_size = 2
+local_only_egress = true
+judge_prompt = "prompts/locomo_binary_judge_v1.txt"
+checkpoint_dir = "checkpoints/locomo-graphiti-qwen38-smoke-v1"
+result_path = "results/locomo-graphiti-qwen38-smoke-v1.json"
+calibration_path = "calibration/locomo-graphiti-qwen38-smoke-v1-judge-sample.json"
+
+[dataset]
+name = "LoCoMo"
+source_url = "https://raw.githubusercontent.com/snap-research/locomo/3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376/data/locomo10.json"
+revision = "snap-research/locomo@3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376"
+sha256 = "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4"
+path = "data/locomo10.json"
+
+[answer_model]
+endpoint = "http://127.0.0.1:8081/v1"
+model_id = "qwen38-local-vl"
+disclosed_model = "Qwen3.8-27B Q6_K GGUF, resident llama-server alias qwen38-local-vl"
+provider = "llama.cpp OpenAI-compatible server"
+temperature = 0.0
+top_p = 1.0
+max_tokens = 128
+seed = 20260818
+timeout_seconds = 300
+enable_thinking = false
+
+[judge_model]
+endpoint = "http://127.0.0.1:8081/v1"
+model_id = "qwen38-local-vl"
+disclosed_model = "Qwen3.8-27B Q6_K GGUF, resident llama-server alias qwen38-local-vl"
+provider = "llama.cpp OpenAI-compatible server"
+temperature = 0.0
+top_p = 1.0
+max_tokens = 256
+seed = 20260818
+timeout_seconds = 300
+enable_thinking = false
+
+[condition]
+name = "graphiti-oss-local"
+adapter = "graphiti"
+description = "Graphiti OSS adds one episode per chronological LoCoMo turn with its reference_time into an embedded FalkorDB Lite graph, extracts entities and temporal edges through the local Qwen endpoint, and answers each question from a hybrid (semantic + BM25 + RRF) search over that conversation's group_id."
+graphiti_repository = "https://github.com/getzep/graphiti"
+graphiti_commit = "10374d6044f91b9ecae3586828abb1ecbf022c4f"
+graphiti_packages = "graphiti-core[falkordblite] 0.29.3 installed from the pinned commit; falkordblite 0.10.0 embedded FalkorDB Lite server"
+upstream_reference = "examples/podcast/podcast_runner.py (embedded FalkorDB Lite client) and graphiti_core.search.search_config_recipes at the pinned commit"
+llm_endpoint = "http://127.0.0.1:8081/v1"
+llm_model = "qwen38-local-vl"
+llm_temperature = 0.0
+llm_max_tokens = 4096
+structured_output_mode = "json_schema"
+embedding_model = "BAAI/bge-small-en-v1.5"
+embedding_dims = 384
+embedding_provider = "fastembed 0.8.0 ONNX Runtime on CPU through a graphiti_core EmbedderClient subclass; no OpenAI embedding fallback"
+cross_encoder = "local order-preserving stub; the RRF recipe never calls rank(), so no cloud reranker is reachable"
+telemetry = "GRAPHITI_TELEMETRY_ENABLED=false is set before graphiti_core is imported"
+graph_store = "embedded FalkorDB Lite (falkordblite) started in-process; no external database service"
+store_path = ".bench/locomo-graphiti-smoke-v1/falkordb.rdb"
+search_recipe = "COMBINED_HYBRID_SEARCH_RRF"
+search_limit = 20
+semaphore_limit = 4
+max_coroutines = 4
+group_prefix = "locomo-graphiti-smoke-v1"
+ingestion_log_path = "logs/locomo-graphiti-qwen38-smoke-v1-ingestion.jsonl"
+reset_store = true
+max_sessions = 1
+max_turns_per_session = 5

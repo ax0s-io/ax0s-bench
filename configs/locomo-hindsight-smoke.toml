@@ -1,0 +1,65 @@
+[run]
+id = "locomo-hindsight-qwen38-smoke-v1"
+seed = 20260818
+max_conversations = 1
+questions_per_conversation = 2
+calibration_sample_size = 2
+local_only_egress = true
+judge_prompt = "prompts/locomo_binary_judge_v1.txt"
+checkpoint_dir = "checkpoints/locomo-hindsight-qwen38-smoke-v1"
+result_path = "results/locomo-hindsight-qwen38-smoke-v1.json"
+calibration_path = "calibration/locomo-hindsight-qwen38-smoke-v1-judge-sample.json"
+
+[dataset]
+name = "LoCoMo"
+source_url = "https://raw.githubusercontent.com/snap-research/locomo/3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376/data/locomo10.json"
+revision = "snap-research/locomo@3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376"
+sha256 = "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4"
+path = "data/locomo10.json"
+
+[answer_model]
+endpoint = "http://127.0.0.1:8081/v1"
+model_id = "qwen38-local-vl"
+disclosed_model = "Qwen3.8-27B Q6_K GGUF, resident llama-server alias qwen38-local-vl"
+provider = "llama.cpp OpenAI-compatible server"
+temperature = 0.0
+top_p = 1.0
+max_tokens = 128
+seed = 20260818
+timeout_seconds = 300
+enable_thinking = false
+
+[judge_model]
+endpoint = "http://127.0.0.1:8081/v1"
+model_id = "qwen38-local-vl"
+disclosed_model = "Qwen3.8-27B Q6_K GGUF, resident llama-server alias qwen38-local-vl"
+provider = "llama.cpp OpenAI-compatible server"
+temperature = 0.0
+top_p = 1.0
+max_tokens = 256
+seed = 20260818
+timeout_seconds = 300
+enable_thinking = false
+
+[condition]
+name = "hindsight-oss-local"
+adapter = "hindsight"
+description = "Hindsight OSS self-hosted API: chronological LoCoMo turns retained with timestamps into embedded pg0, local CPU embeddings/reranking, and local llama.cpp extraction; recall feeds the common answerer."
+hindsight_repository = "https://github.com/vectorize-io/hindsight"
+hindsight_commit = "e5b49eb6729512bd9b103058daa93f701da25644"
+hindsight_package = "hindsight-api==0.9.1 (Git tag v0.9.1)"
+api_endpoint = "http://127.0.0.1:8889"
+timeout_seconds = 3600
+bank_prefix = "locomo-hindsight-smoke-v1"
+reset_bank = true
+retain_batch_size = 16
+expected_package_version = "0.9.1"
+require_bank_llm_health = true
+server_freeze_sha256 = "b214a3027fd2e8858bcf10a8a7815accf13f3ec7ac6cc7f7a13f52f97e2e309a"
+recall_budget = "mid"
+recall_max_tokens = 4096
+ingestion_log_path = "logs/locomo-hindsight-qwen38-smoke-v1-ingestion.jsonl"
+fully_local_claim = "Locally runnable OSS: API process and embedded pg0 are local; extraction uses loopback llama.cpp; embeddings and reranker are forced to CPU. A passing harness egress guard refuses non-loopback adapter traffic."
+
+max_sessions = 1
+max_turns_per_session = 4

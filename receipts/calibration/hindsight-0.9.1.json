@@ -1,0 +1,511 @@
+{
+  "schema_version": "ax0s-bench-redacted-calibration-v1",
+  "label": "hindsight-0.9.1",
+  "full_calibration_linkage": {
+    "raw_file_sha256": "13aaee3e67b2685615060f487daeda5f05a5b3a0042a99c335516fbd19a83cec",
+    "canonical_content_sha256": "79da6eb8dda7b143278499e2d1d943e8d230ed1edcf4cea78dc6ff617d06c912"
+  },
+  "redaction": {
+    "removed": [
+      "question text",
+      "gold answer text",
+      "judge rationale and raw response"
+    ],
+    "value_hash_algorithm": "sha256 of canonical UTF-8 JSON value"
+  },
+  "purpose": "Deterministic sample for later blind cross-check by a secondary judge; no secondary vendor was called in v0.",
+  "sampling": {
+    "method": "python-random-sample-with-sorted-output",
+    "seed": 20260818,
+    "size": 40
+  },
+  "judge_model": {
+    "model_id": "qwen38-local-vl"
+  },
+  "decisions": [
+    {
+      "question_index": 16,
+      "conversation_id": "conv-26",
+      "question_sha256": "0e3b7aa5d286cd0547c3b8f7037d6d122d1d74d94cea50fb2d98174474c000ae",
+      "gold_answer_sha256": "009c4fbf46a31f6eda05a075608c88c8057eed26be51152e202a5442fb88a3b4",
+      "prediction": "July 2, 2023",
+      "judge": {
+        "score": 1,
+        "verdict": "correct"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 204,
+      "conversation_id": "conv-30",
+      "question_sha256": "436e84520bca41fca6653694e908b35e99c8f166ce0efcd5034673b0919c8327",
+      "gold_answer_sha256": "7f543bb3a02f57e9648679a919e272650f89beea61b90dcceb9cd39eea1ad4f9",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 212,
+      "conversation_id": "conv-30",
+      "question_sha256": "2fccb45e19249b59fb6902143e0186e504bacb2bb0cff0c558f5da03001966a1",
+      "gold_answer_sha256": "23699f95d4a0dcc8be48e037a185ae226f06efcc8ae187a105ddd57ad90e8266",
+      "prediction": "March 16, 2023",
+      "judge": {
+        "score": 1,
+        "verdict": "correct"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 216,
+      "conversation_id": "conv-30",
+      "question_sha256": "d57da264eab5ddf447b2f8f72b18281bc95a98462ca24f23ca6fc706b6f6e295",
+      "gold_answer_sha256": "ebe0bf2acc6878d98ed7bcbd8b28bbb674cf7249505ad0404d95b8b8d2486c6b",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 227,
+      "conversation_id": "conv-30",
+      "question_sha256": "a9a6fd75757292977ca9092fbe54114446989ffddb25258271be5949b841ad9a",
+      "gold_answer_sha256": "c0c78e2a86b27cf21b33d7f2310d0813fd7bbf6e9f3b8477f4541b8bf3f8b31f",
+      "prediction": "The week before June 19, 2023",
+      "judge": {
+        "score": 1,
+        "verdict": "correct"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 343,
+      "conversation_id": "conv-41",
+      "question_sha256": "6ba3a5b325e9f1e273424c31d5facfdc6400cc81773ff0c56da62ae510a4ee50",
+      "gold_answer_sha256": "19f716629c50a99f39327f4cba8970ac42c31618f313ef620a622efb14dbccb2",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 440,
+      "conversation_id": "conv-41",
+      "question_sha256": "5348fe002e0f9c7a8cc85cb67fc921601310f0f01637b11687e039baafa59708",
+      "gold_answer_sha256": "57be4f1ca620faf1ab85031893555ad552f2e1bf02afcd050d3ac14513310275",
+      "prediction": "Learning about veterans and their contributions",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 467,
+      "conversation_id": "conv-41",
+      "question_sha256": "f91dabf2267076daaffab40c50ec2f5994ebe1c52f3a4a66f05883d76fb3312b",
+      "gold_answer_sha256": "21523e4a0620ab406b03569684f5ffef3440a5b741fb578dd480857a7ecc179c",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 478,
+      "conversation_id": "conv-41",
+      "question_sha256": "e84eec430487af2b6b5a794cad05463b9aaf7a81fc117079bfddc98297c70f98",
+      "gold_answer_sha256": "8db5d6e10514a21ce22b28fb1bbdf6de2f4cc8cb40d6d6718f89eaa047c8e286",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 511,
+      "conversation_id": "conv-42",
+      "question_sha256": "ef8409523643f2f03968687d856dff65e070f2ccef0300f054743afcec096074",
+      "gold_answer_sha256": "97128ca7e875f4787119534339656437d686570be9f70d38b54701859eec7d65",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 546,
+      "conversation_id": "conv-42",
+      "question_sha256": "b750743dd73a51402b98dcd0fa4f2652f11fec1c2117c0f8392cd0ab6556a4c3",
+      "gold_answer_sha256": "d8d7c852ebf2a9f7057c1f54c0dc45eb5ccace371104c826ffb4f292aa4a2b2e",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 565,
+      "conversation_id": "conv-42",
+      "question_sha256": "aa147867b7f98ac5033959c071986fbcd412fc1f448a01a196cd9e1e4d8bedb5",
+      "gold_answer_sha256": "11f44f9dd22a6496353687780c453ab0eacf939b8bc7071f2ac78de1ff3bac33",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 624,
+      "conversation_id": "conv-42",
+      "question_sha256": "a7056e11fb3d1bbe39ffd500ef8353ac459e3f8e21fd25032553bde4e053a187",
+      "gold_answer_sha256": "21fb552f4d444ece5a7a4d71671cbd518b4a892039c4874bb2d36d8b3be61de6",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 684,
+      "conversation_id": "conv-42",
+      "question_sha256": "8402655cc27e20859d6300a4761b329d3cc570006f212ed62b546a0fb1522fcd",
+      "gold_answer_sha256": "0fba41b8fb58811adc4d7b29e4d26bc7a5ce1fc8c1328f606a4bcee8678a5c18",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 709,
+      "conversation_id": "conv-42",
+      "question_sha256": "3ea420e307b10e4f40c45293d758a154863c1bca2242b888fe321bbfc13b5c7d",
+      "gold_answer_sha256": "bd2fbddcec4cd7e1f0fdd0e8ab4606b65e325f68af5c52b38053614c82ff1538",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 881,
+      "conversation_id": "conv-43",
+      "question_sha256": "57a22e0ba28648d2a32d92e915e73cd66346f3f36bc24fc457a44d25355c88f5",
+      "gold_answer_sha256": "40d766209d2f170903cae7cb2ef999c41c7382fff664f957bd21ace47917b548",
+      "prediction": "J.K. Rowling",
+      "judge": {
+        "score": 1,
+        "verdict": "correct"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 908,
+      "conversation_id": "conv-43",
+      "question_sha256": "ce32181bce1b5c4145b54539961205f28a4c18f1ce5c17734efbc7bf94d3576e",
+      "gold_answer_sha256": "096163143728ed3049f5ca1fce98f180d03cde1ef765a7e8b2b8e499f12011f8",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 917,
+      "conversation_id": "conv-43",
+      "question_sha256": "d136824fb0fc61a6795e2e13dca7f79d8bccfe7a584a675f548775116a9a04cc",
+      "gold_answer_sha256": "2f8af7d7b79d0bfad8b9972e848821cb342311fb90b85915dc7879b4afeed7f2",
+      "prediction": "Shared an image of two men on horseback in front of a mountain",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 1008,
+      "conversation_id": "conv-44",
+      "question_sha256": "5e195e24e364e8637f49b536e23c1f239a6543d0b9bbb47b0699b3de9ffca91e",
+      "gold_answer_sha256": "a956bf1fab83ea90f05da0953d30a7c7bd3162f9eb007fa8d8debef8c7106db4",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 1039,
+      "conversation_id": "conv-44",
+      "question_sha256": "76cbe24199a426b1f2868d67df744e604742d25ba5704d97556c00d2e88e2b19",
+      "gold_answer_sha256": "37df6361b7b12323f331e1f2566657a4cfbfa7acfd178125454d4c5769db062c",
+      "prediction": "The dog park",
+      "judge": {
+        "score": 1,
+        "verdict": "correct"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 1149,
+      "conversation_id": "conv-44",
+      "question_sha256": "092fb7a7dbde2be365c0b53f274a16c547c31b1886135fc20be6e3ef71ad1c1e",
+      "gold_answer_sha256": "2bfeb5158400103504f03fa09aeab89d5e29eb49e045d7676526f1a22bc4844a",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 1225,
+      "conversation_id": "conv-47",
+      "question_sha256": "b5a26ef986d7f46ad11650fe9fa6884d062bec65eaf958ae1eb8227c3bf11d5b",
+      "gold_answer_sha256": "49002cba2df0d383949f8196a5d420e205bd84fc1acc31d73f90cde024ebc254",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 1251,
+      "conversation_id": "conv-47",
+      "question_sha256": "4c65a771193019a2e47e6d181177bd0a7d3acf6eda68b806a93ec0b7a0c67558",
+      "gold_answer_sha256": "33f06f22a1cba32b6ded7be958d6051cc1e97ff98346176e0fb355e453516adc",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 1256,
+      "conversation_id": "conv-47",
+      "question_sha256": "e543d53d43ad7bf4b8798008e253a872346a9827a67ef1b892c22b33a880ff0d",
+      "gold_answer_sha256": "b693585342733d2195ef69c315df4828d942cd00e0faae4cdf1c105146520239",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 1270,
+      "conversation_id": "conv-47",
+      "question_sha256": "5103b7d4811305c0ea3860a42d2773690aff5fe1c13577d58a310afc70a3e172",
+      "gold_answer_sha256": "c95f686bf7142feb446437a6538e368e558325e6c3da9983d05421bba07276a4",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 1272,
+      "conversation_id": "conv-47",
+      "question_sha256": "ee265cae25aab0015bbefb0a53d278389fa0fa931dbd4aee57c371fab53b36f9",
+      "gold_answer_sha256": "2260e0c051143e73cfd360c4e51776de85d39931ca6061071a950580b008d958",
+      "prediction": "An event",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 1355,
+      "conversation_id": "conv-48",
+      "question_sha256": "792e48b078fd4a6cfa6deb9a960bebc74f17ee8121a72d60cddcd6c6a8e59e07",
+      "gold_answer_sha256": "eb19a12092ec05f0dbd775a7f45137af5cb397677ae0e48fab655c08bd5b4c9b",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 1365,
+      "conversation_id": "conv-48",
+      "question_sha256": "e0e0cddae8b8886c2fd27cdbe7638f8347e5bb1d8d6ff6934ec2e5b810086ed2",
+      "gold_answer_sha256": "033b399064375205a57ba4a2a294760e7e02b67952fcc3ee575ebedbe8ce0542",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 1437,
+      "conversation_id": "conv-48",
+      "question_sha256": "476e02ec8331b138f97b25d1394ff236e95a38f3100069f7dd56d2afc872edd7",
+      "gold_answer_sha256": "05b5756863c4538e40796d253febf69dc71198608727f1c6ee15f2059e3554c4",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 1449,
+      "conversation_id": "conv-48",
+      "question_sha256": "b90a3dff5c00ff43426e6dd40cb664dc04804f010bced853a3699cb2f4c59595",
+      "gold_answer_sha256": "612d10e6a3061768aa0ea873ea422b43c8c63b4b437e6be26c0652d45f9b4395",
+      "prediction": "A large robotics project",
+      "judge": {
+        "score": 1,
+        "verdict": "correct"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 1464,
+      "conversation_id": "conv-48",
+      "question_sha256": "e6488aaf1abcb7974a1af4d1345b6328081618c7e2b7594a40f05179d8db01f1",
+      "gold_answer_sha256": "71ac46cae9cd2744856aa9b7c6ca9388b9ecd5d09a03a87782eec799a2d92fa3",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 1569,
+      "conversation_id": "conv-48",
+      "question_sha256": "766b4b6412f768829adfd0a0ba941d59049331a55e73103daacffac263050b51",
+      "gold_answer_sha256": "254d4938f98ee09627aeef8130e3b0af8b6d85e44351c8821cbe0b7659b49e1b",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 1590,
+      "conversation_id": "conv-49",
+      "question_sha256": "1640cadb485982c3d562eec6fbbd820dadae9d046f434717f7700061b52b5d28",
+      "gold_answer_sha256": "28c7a9f03aa6cfb0a17f34e7f5eb9fbcd26693009f200d7d28975bd7452f6b06",
+      "prediction": "Painting",
+      "judge": {
+        "score": 1,
+        "verdict": "correct"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 1602,
+      "conversation_id": "conv-49",
+      "question_sha256": "87123341d40faf4c061bc60183f534a2fe38bf2e4cd0cb4172516abf98bdc2bd",
+      "gold_answer_sha256": "72b96677cba1c8cda06a7d57bdbf8b2267176b59e23e9aaccc05e7804b732c36",
+      "prediction": "Broken self-checkout machines",
+      "judge": {
+        "score": 1,
+        "verdict": "correct"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 1654,
+      "conversation_id": "conv-49",
+      "question_sha256": "82175599e3237785b24e8094da2aad6c3a05aa01800602b2ef6f6f92422c63d2",
+      "gold_answer_sha256": "3e0cb7b09e18e87411c88a09b37b37f65233bb75065980f009157fa49f2d0590",
+      "prediction": "Attended a Weight Watchers meeting",
+      "judge": {
+        "score": 1,
+        "verdict": "correct"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 1732,
+      "conversation_id": "conv-49",
+      "question_sha256": "751abb8f518906faceec60b547f9bf3ade3fcc9b1224349a904ed08acebab43a",
+      "gold_answer_sha256": "dfd344c33490dde092f7783482e6e940a8dec665ef05468abb5ac8cf72e78b95",
+      "prediction": "Their marriage",
+      "judge": {
+        "score": 1,
+        "verdict": "correct"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 1840,
+      "conversation_id": "conv-50",
+      "question_sha256": "1739083ed3568528f6f5998e798ae9d6ee9c33c17f55ef4b1875057fea95be4f",
+      "gold_answer_sha256": "a95b4f7c72a7afa895da55a43bae2857af3a420e314f0f61acbeb648820c7828",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 1850,
+      "conversation_id": "conv-50",
+      "question_sha256": "da08b94ff908158a4ed1235fea86462fa262b90042099c6fcce0e73c62e8cf3d",
+      "gold_answer_sha256": "27ce3c610d0229bd0b010a4013e5536d4b71ee9fe019fc888a7cc56fe2960c4f",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 1925,
+      "conversation_id": "conv-50",
+      "question_sha256": "65bad29922fe7bb9c4dde1d8ca2cd936a6a4651e7e0db859960edc2ceea9254c",
+      "gold_answer_sha256": "64cd07436b9873b47e0a239b1c34bca7ae9ffb242089a43122ee4ac43a03d9c3",
+      "prediction": "car mods",
+      "judge": {
+        "score": 1,
+        "verdict": "correct"
+      },
+      "secondary_judge": null
+    },
+    {
+      "question_index": 1970,
+      "conversation_id": "conv-50",
+      "question_sha256": "5416cca582e8167406c9d9cc5db4645875ab6423e3d93bd583c680af4ca682e1",
+      "gold_answer_sha256": "594b1b0153e62020842876d238acb2e25e9566fe40b3ac36c0190db0197674e9",
+      "prediction": "Unknown",
+      "judge": {
+        "score": 0,
+        "verdict": "incorrect"
+      },
+      "secondary_judge": null
+    }
+  ],
+  "content_hash": {
+    "algorithm": "sha256-canonical-json-excluding-content_hash",
+    "value": "78a4a2120f12d7719dc64a865c8ebb5e95f4e8d4132b57a643d8060a831a39d0"
+  }
+}

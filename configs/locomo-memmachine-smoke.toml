@@ -1,0 +1,76 @@
+[run]
+id = "locomo-memmachine-qwen38-smoke-v1"
+seed = 20260818
+max_conversations = 1
+questions_per_conversation = 6
+calibration_sample_size = 3
+local_only_egress = true
+judge_prompt = "prompts/locomo_binary_judge_v1.txt"
+checkpoint_dir = "checkpoints/locomo-memmachine-qwen38-smoke-v1"
+result_path = "results/locomo-memmachine-qwen38-smoke-v1.json"
+calibration_path = "calibration/locomo-memmachine-qwen38-smoke-v1-judge-sample.json"
+
+[dataset]
+name = "LoCoMo"
+source_url = "https://raw.githubusercontent.com/snap-research/locomo/3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376/data/locomo10.json"
+revision = "snap-research/locomo@3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376"
+sha256 = "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4"
+path = "data/locomo10.json"
+
+[answer_model]
+endpoint = "http://127.0.0.1:8081/v1"
+model_id = "qwen38-local-vl"
+disclosed_model = "Qwen3.8-27B Q6_K GGUF, resident llama-server alias qwen38-local-vl"
+provider = "llama.cpp OpenAI-compatible server"
+temperature = 0.0
+top_p = 1.0
+max_tokens = 128
+seed = 20260818
+timeout_seconds = 300
+enable_thinking = false
+
+[judge_model]
+endpoint = "http://127.0.0.1:8081/v1"
+model_id = "qwen38-local-vl"
+disclosed_model = "Qwen3.8-27B Q6_K GGUF, resident llama-server alias qwen38-local-vl"
+provider = "llama.cpp OpenAI-compatible server"
+temperature = 0.0
+top_p = 1.0
+max_tokens = 256
+seed = 20260818
+timeout_seconds = 300
+enable_thinking = false
+
+[condition]
+name = "memmachine-oss-local"
+adapter = "memmachine"
+description = "MemMachine OSS ingests every chronological LoCoMo turn as one episode into declarative long-term memory over a local Neo4j, retrieves with the MemMachineAgent (plain query_memory, no extra LLM calls) and a local BM25 reranker, and supplies the retrieved episodes to the shared answer model."
+memmachine_repository = "https://github.com/MemMachine/MemMachine"
+memmachine_commit = "2d28c1c1e57d1026335c4a829b1a9b0a918c114f"
+memmachine_packages = "memmachine-server + memmachine-common installed from the pinned commit (0.3.10.dev20+g2d28c1c1e)"
+upstream_reference = "evaluation/retrieval_agent/{locomo_ingest,locomo_search}.py and evaluation/utils/agent_utils.py::init_memmachine_params at the pinned commit"
+llm_endpoint = "http://127.0.0.1:8081/v1"
+llm_model = "qwen38-local-vl"
+embedding_model = "BAAI/bge-small-en-v1.5"
+embedding_dims = 384
+embedding_max_input_length = 2048
+embedding_provider = "fastembed 0.8.0 ONNX Runtime on CPU, served to MemMachine over an in-process loopback OpenAI-compatible /v1/embeddings endpoint"
+graph_uri = "bolt://127.0.0.1:7688"
+graph_user = "neo4j"
+graph_password_env = "MEMMACHINE_NEO4J_PASSWORD"
+graph_service = "neo4j:5.23-community container bench-memmachine-neo4j, loopback-only ports 127.0.0.1:7688 (bolt) and 127.0.0.1:7475 (http)"
+sqlite_path = ".bench/locomo-memmachine-smoke-v1/memmachine-session.db"
+bm25_k1 = 1.5
+bm25_b = 0.75
+bm25_epsilon = 0.25
+bm25_language = "english"
+bm25_tokenizer = "default"
+top_k = 20
+expand_context = 0
+max_return_len = 10000
+message_sentence_chunking = false
+session_prefix = "locomo-memmachine-smoke-v1"
+memmachine_config_path = "logs/locomo-memmachine-qwen38-smoke-v1-memmachine-config.yaml"
+ingestion_log_path = "logs/locomo-memmachine-qwen38-smoke-v1-ingestion.jsonl"
+reset_store = true
+max_sessions = 1

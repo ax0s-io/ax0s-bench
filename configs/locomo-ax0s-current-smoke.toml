@@ -1,0 +1,69 @@
+[run]
+id = "locomo-ax0s-current-qwen38-smoke-v1"
+seed = 20260818
+max_conversations = 1
+questions_per_conversation = 6
+calibration_sample_size = 40
+judge_prompt = "prompts/locomo_binary_judge_v1.txt"
+checkpoint_dir = "checkpoints/locomo-ax0s-current-qwen38-smoke-v1"
+result_path = "results/locomo-ax0s-current-qwen38-smoke-v1.json"
+calibration_path = "calibration/locomo-ax0s-current-qwen38-smoke-v1-judge-sample.json"
+local_only_egress = true
+
+[dataset]
+name = "LoCoMo"
+source_url = "https://raw.githubusercontent.com/snap-research/locomo/3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376/data/locomo10.json"
+revision = "snap-research/locomo@3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376"
+sha256 = "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4"
+path = "data/locomo10.json"
+
+[answer_model]
+endpoint = "http://127.0.0.1:8081/v1"
+model_id = "qwen38-local-vl"
+disclosed_model = "Qwen3.8-27B Q6_K GGUF, resident llama-server alias qwen38-local-vl"
+provider = "llama.cpp OpenAI-compatible server"
+temperature = 0.0
+top_p = 1.0
+max_tokens = 128
+seed = 20260818
+timeout_seconds = 300
+enable_thinking = false
+
+[judge_model]
+endpoint = "http://127.0.0.1:8081/v1"
+model_id = "qwen38-local-vl"
+disclosed_model = "Qwen3.8-27B Q6_K GGUF, resident llama-server alias qwen38-local-vl"
+provider = "llama.cpp OpenAI-compatible server"
+temperature = 0.0
+top_p = 1.0
+max_tokens = 256
+seed = 20260818
+timeout_seconds = 300
+enable_thinking = false
+
+[condition]
+name = "ax0s-memory-current-embedded-turn-records"
+adapter = "ax0s_memory"
+description = "ax0s-memory 0.5.0 at canonical hub revision a2700dd stores every chronological LoCoMo turn as a scratch-only record, then weighted-hybrid recalls top-20 into the frozen answer/judge protocol."
+source_revision = "a2700dd3230f603d2150796329cf2f65deba63e5"
+source_path = "vendor/ax0s-memory-a2700dd"
+package = "ax0s-memory==0.5.0 (editable from exact source revision)"
+package_version = "0.5.0"
+embedding_model = "Qwen/Qwen3-Embedding-0.6B"
+embedding_dims = 1024
+embedding_max_seq_tokens = 2048
+store_path = ".bench/ax0s-current-smoke-v1/data"
+ingestion_log_path = "logs/locomo-ax0s-current-qwen38-smoke-v1-ingestion.jsonl"
+reset_store = true
+slug_prefix = "bench-locomo-ax0s-current-smoke-v1"
+mode = "hybrid"
+ranker = "weighted"
+top_k = 20
+category_scope = "all categories 1-5; categories 1-4 also reported as a secondary slice"
+timestamp_transport = "LoCoMo naive minute timestamp interpreted as UTC; synthetic per-turn second offsets preserve within-session order; authoritative content prefix and GOV-07 envelope retain the original header"
+write_boundary = "scratch AX0S_DATA_ROOT only; no production store or service writes"
+recall_env_ax0s_reranker = "<unset>"
+recall_env_ax0s_reranker_batch = "<unset>"
+recall_env_ax0s_rerank_fusion = "<unset>"
+recall_env_ax0s_rerank_rrf_weight = "<unset>"
+recall_env_ax0s_recall_narrow_filters = "<unset>"

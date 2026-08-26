@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AX0S Bench redacted failure receipt v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "event",
+    "condition",
+    "failure",
+    "score_emitted",
+    "full_receipt_raw_sha256",
+    "redaction",
+    "content_hash"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "ax0s-bench-redacted-failure-receipt-v1"
+    },
+    "event": {
+      "type": "string"
+    },
+    "condition": {
+      "type": "string"
+    },
+    "failure": {
+      "type": "string"
+    },
+    "score_emitted": {
+      "const": false
+    },
+    "full_receipt_raw_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "redaction": {
+      "type": "array"
+    },
+    "content_hash": {
+      "type": "object"
+    }
+  }
+}
