@@ -93,6 +93,7 @@ class Tier1UnitTest(unittest.TestCase):
 
     def test_loopback_policy(self):
         self.assertTrue(EgressGuard._is_loopback("127.0.0.1"))
+        self.assertTrue(EgressGuard._is_loopback("::ffff:127.0.0.1"))
         self.assertTrue(EgressGuard._is_loopback("::1"))
         self.assertFalse(EgressGuard._is_loopback("192.0.2.1"))
 
