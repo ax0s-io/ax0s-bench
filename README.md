@@ -34,7 +34,7 @@ The original private repository history, raw LoCoMo text, model stores, checkpoi
 
 ## Quick check
 
-Tier 1 needs Python 3.12 or newer. It does not install project dependencies, fetch LoCoMo, or download a model.
+Tier 1 needs Python 3.12 or newer. It does not install project dependencies, fetch LoCoMo, or download a model. `./scripts/check.sh` still invokes pinned Ruff via `uvx` and JSON Schema via `uv run --no-project --with`; those commands may fetch those tools.
 
 ```bash
 ./scripts/check.sh
