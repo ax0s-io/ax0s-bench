@@ -11,6 +11,7 @@ from unittest.mock import patch
 
 from ax0s_bench.adapters import AX0S_RECALL_ENV_BINDINGS, bind_ax0s_recall_environment
 from ax0s_bench.egress_guard import EgressGuard
+from ax0s_bench.judge import _parse_json
 from ax0s_bench.runner import canonical_hash, verify_hashed_json, verify_tier3_attestation, write_hashed_json
 
 
@@ -95,6 +96,16 @@ class Tier1UnitTest(unittest.TestCase):
         self.assertTrue(EgressGuard._is_loopback("127.0.0.1"))
         self.assertTrue(EgressGuard._is_loopback("::1"))
         self.assertFalse(EgressGuard._is_loopback("192.0.2.1"))
+
+    def test_parse_json_clean_object(self):
+        self.assertEqual({"score": 1, "rationale": "ok"}, _parse_json('{"score": 1, "rationale": "ok"}'))
+
+    def test_parse_json_first_balanced_object_in_noise(self):
+        self.assertEqual({"score": 1}, _parse_json('prefix {"score": 1} note {}'))
+
+    def test_parse_json_no_object_raises(self):
+        with self.assertRaises(json.JSONDecodeError):
+            _parse_json("no json here")
 
 
 if __name__ == "__main__":

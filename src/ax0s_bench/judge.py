@@ -1,21 +1,55 @@
 from __future__ import annotations
 
 import json
-import re
 from pathlib import Path
 from typing import Any
 
 from .api import OpenAIChatClient
 
 
+def _balanced_object_end(text: str, start: int) -> int | None:
+    depth = 0
+    in_string = False
+    escape = False
+    for i in range(start, len(text)):
+        ch = text[i]
+        if escape:
+            escape = False
+            continue
+        if in_string:
+            if ch == "\\":
+                escape = True
+            elif ch == '"':
+                in_string = False
+            continue
+        if ch == '"':
+            in_string = True
+            continue
+        if ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0:
+                return i + 1
+    return None
+
+
 def _parse_json(text: str) -> dict[str, Any]:
     try:
         return json.loads(text)
-    except json.JSONDecodeError:
-        match = re.search(r"\{.*\}", text, re.DOTALL)
-        if not match:
-            raise
-        return json.loads(match.group())
+    except json.JSONDecodeError as exc:
+        start = 0
+        while True:
+            idx = text.find("{", start)
+            if idx == -1:
+                raise exc
+            end = _balanced_object_end(text, idx)
+            if end is not None:
+                try:
+                    return json.loads(text[idx:end])
+                except json.JSONDecodeError:
+                    pass
+            start = idx + 1
 
 
 class LLMJudge:
