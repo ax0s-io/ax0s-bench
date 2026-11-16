@@ -1,5 +1,7 @@
 # Gaps and fairness limits
 
+These limits apply to AX0S's own August 2026 evaluation, not an independent assessment or a claim about current systems.
+
 ## Comparison limits
 
 - These are same-protocol local-model condition comparisons. They do not replicate or refute vendor-published numbers.
@@ -16,7 +18,7 @@ The two AX0S rows have different exact conditions.
 - `a2700dd3230f603d2150796329cf2f65deba63e5` measured the pre-fix default: Qwen3-Embedding-0.6B, weighted-hybrid retrieval, top 20, no minimum-score filter, no cross-encoder, and no incidence expansion.
 - `bcd871066173ca10fcbc7d0a6f1091152e472b3b` measured the shipped production recall configuration: Qwen3-Embedding-0.6B, `BAAI/bge-reranker-v2-m3` cross-encoder on, batch 8, RRF fusion, RRF weight 2.0, narrow filters on, and top 20.
 
-The cross-encoder is on by default in production and the `bcd8710` run measured it. The prior row remains because it records the pre-fix default. The `bcd8710` result is a revision-plus-configuration condition delta, not a code-only reranker ablation.
+The cross-encoder was the production default in August 2026, and the `bcd8710` run measured that configuration. The prior row remains because it records the pre-fix default. The `bcd8710` result is a revision-plus-configuration condition delta, not a code-only reranker ablation.
 
 Open AX0S questions include deeper retrieval, minimum-score thresholds, incidence expansion, repeat-run variance, and production GPU latency.
 

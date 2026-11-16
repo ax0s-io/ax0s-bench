@@ -1,5 +1,18 @@
 # Results
 
+These are AX0S's own evaluations of its product and other local memory-system conditions, not an independent benchmark. They record August 2026 runs, not current product quality.
+
+## Run dates and revisions
+
+Completion timestamps below are from the public receipts, shown in US Central time. System revisions and package versions describe the tested conditions only.
+
+| Condition | Completed (US Central) | Harness commit |
+| --- | --- | --- |
+| AX0S `bcd8710` | `2026-08-25T19:54:07.997583-05:00` | `08ddce9607a9ae5e1f37d260844e5401f4d30404` |
+| AX0S `a2700dd` | `2026-08-20T00:54:32.697167-05:00` | `08ddce9607a9ae5e1f37d260844e5401f4d30404` |
+| Hindsight OSS 0.9.1 | `2026-08-22T08:53:20.847854-05:00` | `01cc9e862db8fcf9914997335da5efced3f82d7e` |
+| Mem0 OSS 2.0.18 | `2026-08-19T09:37:02.869799-05:00` | `e5b64787de51fe3d6bf9a0fa3ef213a94a0bd1fc` |
+
 ## Frozen frame
 
 - Dataset: LoCoMo-10 at `snap-research/locomo@3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376`.
@@ -12,7 +25,7 @@
 
 ## Scored conditions
 
-- AX0S `bcd871066173ca10fcbc7d0a6f1091152e472b3b`, production recall configuration: 871/1,986, 43.86%. Categories 1 to 4: 861/1,540, 55.91%. Category 5: 10/446, 2.24%. Per category: 93/282, 160/321, 17/96, 591/841, and 10/446.
+- AX0S `bcd871066173ca10fcbc7d0a6f1091152e472b3b`, then-production recall configuration: 871/1,986, 43.86%. Categories 1 to 4: 861/1,540, 55.91%. Category 5: 10/446, 2.24%. Per category: 93/282, 160/321, 17/96, 591/841, and 10/446.
 - AX0S `a2700dd3230f603d2150796329cf2f65deba63e5`, pre-fix default without the cross-encoder: 792/1,986, 39.88%. Categories 1 to 4: 783/1,540, 50.84%. Category 5: 9/446, 2.02%.
 - Hindsight OSS 0.9.1: 721/1,986, 36.30%. Categories 1 to 4: 716/1,540, 46.49%. Category 5: 5/446, 1.12%. Per category: 73/282, 204/321, 24/96, 415/841, and 5/446.
 - Mem0 OSS 2.0.18: 388/1,986, 19.54%. Categories 1 to 4: 382/1,540, 24.81%. Category 5: 6/446, 1.35%. Per category: 45/282, 104/321, 11/96, 222/841, and 6/446.
@@ -20,7 +33,7 @@
 
 ## Cross-encoder condition change
 
-The `bcd8710` run measured AX0S with the production recall configuration: `BAAI/bge-reranker-v2-m3`, batch 8, RRF fusion, RRF weight 2.0, and narrow filters on. The reranker ran on CPU. The prior `a2700dd` row measured the pre-fix default without the cross-encoder.
+The `bcd8710` run measured AX0S with the recall configuration used in production in August 2026: `BAAI/bge-reranker-v2-m3`, batch 8, RRF fusion, RRF weight 2.0, and narrow filters on. The reranker ran on CPU. The prior `a2700dd` row measured the pre-fix default without the cross-encoder.
 
 The change from `a2700dd` to `bcd8710` is +79 correct and +3.98 percentage points overall. It is a shipped-condition delta for revision plus recall configuration, not a code-only ablation.
 

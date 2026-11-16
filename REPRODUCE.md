@@ -1,10 +1,12 @@
 # Reproduce the benchmark
 
+This is an AX0S-authored evaluation, not an independent benchmark. The published scores are historical August 2026 results. The steps below describe that frozen protocol, not a newly tested setup. See [RESULTS.md](RESULTS.md) for completion dates and actual per-run harness revisions.
+
 Do not compare receipts across tiers. Each tier answers a different question and labels its output with a tier number.
 
 ## Tier 1: CI smoke
 
-Tier 1 runs anywhere with Python 3.12 or newer.
+Tier 1 needs Python 3.12 or newer and `uv` (including `uvx`).
 
 ```bash
 ./scripts/check.sh
@@ -26,7 +28,7 @@ is the configuration `configs/tier2-local-subset.toml` discloses.
 
 Substitution rule: any other local model or quantisation may be used, but the
 disclosure fields must then be replaced with that artifact's exact name and
-file SHA-256, and the resulting receipt is a different protocol — label it
+file SHA-256. The resulting receipt is a different protocol. Label it
 with its own disclosure and do not place it beside pinned tier-2 numbers.
 
 1. Download the pinned file and verify its SHA-256, then start a local model
@@ -55,7 +57,7 @@ Tier 3 is the only tier whose results may be placed beside the published rows.
 - LoCoMo-10 at `snap-research/locomo@3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376`.
 - Dataset SHA-256 `79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4`.
 - All 1,986 questions over 10 conversations.
-- Harness protocol revision `08ddce9607a9ae5e1f37d260844e5401f4d30404`.
+- Reference harness protocol revision `08ddce9607a9ae5e1f37d260844e5401f4d30404`. The completed Hindsight and Mem0 receipts record different harness commits; see [RESULTS.md](RESULTS.md). Do not assume every published row ran this exact commit.
 - One NVIDIA GeForce RTX 5090 with 32,607 MiB in the reference execution.
 - Linux x86_64, driver 595.84, Python 3.13.13 in the reference execution.
 
@@ -72,9 +74,9 @@ The same resident Qwen3.8-27B Q6_K model answered and judged.
 - Judge sampling: temperature 0, top-p 1, maximum 256 tokens, seed `20260818 + 100000 + question_index`, thinking off.
 - Judge prompt SHA-256 `d09585046cb8892ab86fdfae4b711829998500c2be98fc9e8845fdab110ca720`.
 
-### AX0S production condition
+### AX0S August 2026 production condition
 
-Clone ax0s-memory separately to `vendor/ax0s-memory-bcd8710` and check out `bcd871066173ca10fcbc7d0a6f1091152e472b3b`. The source is not included here.
+Clone ax0s-memory separately to `vendor/ax0s-memory-bcd8710` and check out `bcd871066173ca10fcbc7d0a6f1091152e472b3b`. The source is not included here, and this repository provides no public source URL. Reproducing the AX0S condition requires separate access to that source.
 
 - Embedder: `Qwen/Qwen3-Embedding-0.6B` at snapshot `97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3`, 1,024 dimensions, 2,048-token window.
 - Cross-encoder: `BAAI/bge-reranker-v2-m3` at snapshot `953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e`.

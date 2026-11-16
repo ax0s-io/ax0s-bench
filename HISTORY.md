@@ -9,6 +9,6 @@ This public repository starts with one clean commit. The private development his
 - Graphiti OSS 0.29.3 failed closed during full ingestion and was not scored.
 - Hindsight OSS 0.9.1 completed under the same frozen local protocol.
 - A pinned Mem0 rerun failed closed and was not scored.
-- AX0S `bcd8710` completed with the production cross-encoder configuration and superseded the current AX0S condition without deleting the prior row.
+- AX0S `bcd8710` completed with the production cross-encoder configuration and superseded the earlier August 2026 AX0S condition without deleting the prior row.
 
 Rejected logs, checkpoints, local stores, raw receipts, and internal orchestration notes remain private.

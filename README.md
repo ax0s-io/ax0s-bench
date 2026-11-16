@@ -13,7 +13,7 @@ These rules apply to every result in this repository:
 - cat-5 reported separately
 - condition comparison not managed-product ranking
 
-The current AX0S result is 871/1,986, or 43.86%, at `bcd8710` with the production cross-encoder configuration. The earlier AX0S condition scored 792/1,986, or 39.88%, at `a2700dd` without the cross-encoder. Hindsight OSS 0.9.1 scored 721/1,986, or 36.30%. Mem0 OSS 2.0.18 scored 388/1,986, or 19.54%.
+These are historical results from August 2026, not measurements of today's systems. AX0S scored 871/1,986, or 43.86%, on August 25 at `bcd8710` with the cross-encoder configuration used in production at the time. The earlier AX0S condition scored 792/1,986, or 39.88%, on August 20 at `a2700dd` without the cross-encoder. Hindsight OSS 0.9.1 scored 721/1,986, or 36.30%, on August 22. Mem0 OSS 2.0.18 scored 388/1,986, or 19.54%, on August 19. Dates are completion dates in US Central time; full timestamps and harness revisions are in [RESULTS.md](RESULTS.md).
 
 AX0S scores lower than Hindsight on categories 2 and 3 in both documented AX0S conditions. Category 5 is adversarial and appears separately from categories 1 to 4. See [RESULTS.md](RESULTS.md) and [GAPS.md](GAPS.md) before quoting a number.
 
@@ -34,7 +34,7 @@ The original private repository history, raw LoCoMo text, model stores, checkpoi
 
 ## Quick check
 
-Tier 1 needs Python 3.12 or newer. It does not install project dependencies, fetch LoCoMo, or download a model.
+Tier 1 needs Python 3.12 or newer and `uv` (including `uvx`). It does not install project dependencies, fetch LoCoMo, or download a model.
 
 ```bash
 ./scripts/check.sh
