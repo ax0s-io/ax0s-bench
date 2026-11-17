@@ -6,11 +6,12 @@ from typing import Any
 
 
 class EgressGuard:
-    """Fail-closed audit hook proving a condition only talks to this host.
+    """Optional guard for audited Python socket connects.
 
-    Installed before any memory backend is constructed. Every ``socket.connect``
-    to a non-loopback IP address raises, so a silent OpenAI/telemetry fallback
-    aborts the run instead of producing a quietly non-local receipt.
+    When installed, the hook raises on audited ``socket.connect`` events with
+    non-loopback tuple addresses. It can catch Python network fallbacks, but
+    does not constrain subprocesses or unaudited network activity. It is not
+    proof of host-only communication or an OS network policy.
     """
 
     def __init__(self) -> None:
